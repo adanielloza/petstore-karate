@@ -1,0 +1,40 @@
+CONCLUSIONES - EJERCICIO 2 APIs - PetStore Swagger
+
+1. Objetivo
+Se automatizó el flujo completo de pruebas REST para la API pública PetStore utilizando Karate Framework.
+
+2. Endpoints Probados
+
+- POST /pet → Creación de mascota.
+- GET /pet/{id} → Consulta por ID.
+- PUT /pet → Actualización de nombre y estatus.
+- GET /pet/findByStatus → Consulta por estatus.
+
+3. Validaciones Implementadas
+
+- Validación de código de estado HTTP (200).
+- Validación de campos específicos en la respuesta (id, name, status).
+- Uso de variables dinámicas para evitar colisiones de datos.
+- Verificación de que la mascota actualizada aparece en la consulta por status "sold".
+
+4. Evidencia
+
+El framework Karate genera reportes HTML automáticos en:
+target/karate-reports/karate-summary.html
+
+5. Hallazgos
+
+- La API es pública y compartida, por lo que se generó un ID dinámico para evitar conflictos con otros usuarios.
+- Las respuestas cumplen correctamente con el contrato esperado para los escenarios happy path.
+
+6. Recomendaciones
+
+- Implementar pruebas negativas (ej. ID inexistente).
+- Integrar la ejecución en CI/CD.
+- Agregar validaciones de schema JSON para mayor robustez.
+
+7. Tecnologías Utilizadas
+
+- Java 17 (ejecución de pruebas)
+- Maven 3.x
+- Karate Framework 1.4.1
